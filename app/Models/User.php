@@ -51,10 +51,15 @@ class User extends Authenticatable
     }
     public function persona()
     {
-        return $this->belongsTo(Persona::class);
+            return $this->belongsTo(Persona::class, 'persona_id');
     }
     public function actualizaciones()
     {
         return $this->hasMany(Actualiza::class);
+    }
+
+    public function inventario()
+    {
+        return $this->hasMany(Inventario::class, 'user_id');
     }
 }

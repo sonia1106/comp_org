@@ -10,7 +10,7 @@ class Persona extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'persona_id');
     }
 
 }
