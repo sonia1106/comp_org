@@ -58,12 +58,17 @@
                                                 <option value="administrador" {{ $persona->user->hasRole('administrador') ? 'selected' : '' }}>Administrador</option>
                                                 <option value="usuario" {{ $persona->user->hasRole('usuario') ? 'selected' : '' }}>Usuario</option>
                                                 <option value="voluntario" {{ $persona->user->hasRole('voluntario') ? 'selected' : '' }}>Voluntario</option>
+                                                <!-- 🔹 Opción vacía si no tiene rol -->
+                                                @if(!$persona->user->roles->count())
+                                                    <option value="" selected disabled>Sin rol</option>
+                                                @endif
                                             </select>
                                         </form>
                                     @else
                                         <span class="badge badge-secondary">Sin cuenta</span>
                                     @endif
                                 </td>
+
 
 
                                 <td>
@@ -116,7 +121,7 @@
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <div class="form-group">
-                                                            <label>Apellido</label>
+                                                            <label>Apellidos</label>
                                                             <input type="text" class="form-control" name="apellido" value="{{ $persona->apellido }}" required>
                                                         </div>
                                                     </div>
@@ -205,7 +210,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <label>Apellido</label>
+                                    <label>Apellidos</label>
                                     <input type="text" class="form-control" name="apellido" placeholder="Ingrese apellido" required>
                                 </div>
                             </div>

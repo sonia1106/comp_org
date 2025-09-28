@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Backend\VoluntariosController;
 use App\Http\Controllers\Backend\PlantasController;
 use App\Http\Controllers\Backend\InventariosController;
+use App\Http\Controllers\Backend\ComprasController;
 
 
 
@@ -52,7 +53,20 @@ Route::get('/plantas/listar', [PlantasController::class, 'listar'])->name('plant
 Route::post('/plantas/crear', [PlantasController::class, 'crear'])->name('plantas.crear');
 Route::post('/plantas/editar/{id}', [PlantasController::class, 'editar'])->name('plantas.editar');
 Route::delete('/plantas/eliminar/{id}', [PlantasController::class, 'eliminar'])->name('plantas.eliminar');
-Route::get('/plantas/ver/{id}', [PlantasController::class, 'ver'])->name('plantas.ver');
-Route::post('/inventario/agregar/{plantaId}', [InventariosController::class, 'agregar'])->name('inventario.agregar');
-Route::get('/inventario/listar', [InventariosController::class, 'listar'])->name('inventario.listar');
+Route::get('/plantas/{id}/ver', [PlantasController::class, 'ver'])->name('plantas.ver'); 
+
+
+Route::get('/inventario/listar', [PlantasController::class, 'listarInventario'])->name('inventario.listar');
+Route::post('/inventario/agregar/{id}', [PlantasController::class, 'agregarInventario'])->name('inventario.agregar');
+Route::get('/inventario/{id}/ver', [InventariosController::class, 'ver'])->name('inventario.ver');
+
+Route::get('/usuarios/comprar', [ComprasController::class, 'comprar'])->name('usuarios.comprar');
+Route::post('/usuarios/comprar/{id}', [ComprasController::class, 'comprarPlanta'])->name('usuarios.comprarPlanta');
+Route::post('/usuarios/carrito/agregar/{id}', [ComprasController::class, 'agregarAlCarrito'])->name('usuarios.carrito.agregar');
+Route::get('/usuarios/carrito', [ComprasController::class, 'verCarrito'])->name('usuarios.carrito.ver');
+Route::post('/usuarios/carrito/confirmar', [ComprasController::class, 'confirmarCompra'])->name('usuarios.carrito.confirmar');
+Route::post('/usuarios/carrito/cancelar', [ComprasController::class, 'cancelarCompra'])->name('usuarios.carrito.cancelar');
+
+
+
 require __DIR__.'/auth.php';

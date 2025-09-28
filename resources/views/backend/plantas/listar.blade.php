@@ -35,9 +35,8 @@
                             <th>N°</th>
                             <th>Foto</th>
                             <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
+                            <th>Dueño</th>
+                            <th>Inventario</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -56,8 +55,7 @@
                                 @endif
                             </td>
                             <td>{{ $planta->nombre }}</td>
-                            <td>{{ Str::limit($planta->descripcion, 50) }}</td>
-                            <td>Bs{{ number_format($planta->precio, 2) }}</td>
+                            <td>{{ $planta->user->name }}</td>
                             <td>{{ $planta->cantidad_disponible }}</td>
                             <td>
                                 <a href="{{ route('plantas.ver', $planta->id) }}" class="btn btn-sm btn-info">
@@ -73,6 +71,40 @@
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
+                                <!-- Botón para abrir modal -->
+                                @if($planta->user_id == auth()->id())
+                                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#agregarInventarioModal{{ $planta->id }}">
+                                        <i class="fas fa-plus"></i> Agregar Inventario
+                                    </button>
+
+                                    <!-- Modal Agregar Inventario -->
+                                    <div class="modal fade" id="agregarInventarioModal{{ $planta->id }}" tabindex="-1" role="dialog" aria-labelledby="agregarInventarioLabel{{ $planta->id }}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <form action="{{ route('inventario.agregar', $planta->id) }}" method="POST">
+                                                @csrf
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="agregarInventarioLabel{{ $planta->id }}">Agregar Inventario - {{ $planta->nombre }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label for="cantidad{{ $planta->id }}">Cantidad</label>
+                                                            <input type="number" name="cantidad" id="cantidad{{ $planta->id }}" class="form-control" min="1" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        <button type="submit" class="btn btn-success">Agregar</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endif
+
                             </td>
                         </tr>
 
@@ -176,10 +208,6 @@
                     <div class="form-group">
                         <label>Descripción</label>
                         <textarea name="descripcion" class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Cantidad Disponible</label>
-                        <input type="number" name="cantidad_disponible" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Fotografía</label>

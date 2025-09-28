@@ -16,9 +16,18 @@ class Planta extends Model
     {
         return $this->hasMany(Transaccion::class);
     }
-    
+
+     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function inventarios()
     {
         return $this->hasMany(Inventario::class, 'id_planta');
+    }
+    public function getCantidadDisponibleAttribute()
+    {
+        return $this->inventarios()->sum('cantidad');
     }
 }

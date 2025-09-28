@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion')->nullable();
-            $table->decimal('precio', 10, 2);
+            $table->decimal('precio', 10, 2)->default(0);
             $table->integer('cantidad_disponible')->default(0);
             $table->string('fotografia')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
             $table->timestamps();
         });
     }

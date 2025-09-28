@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inventario extends Model
 {
-    protected $guarded = [];
+    protected $table = 'inventario';
+
+    protected $fillable = [
+        'user_id',
+        'id_planta',
+        'cantidad',
+    ];
 
     public function planta()
     {

@@ -8,14 +8,24 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
+   <!-- User Panel -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="{{asset('backend/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
-      </div>
+        <div class="image">
+            <img src="{{ asset('backend/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info d-flex flex-column">
+            <span class="d-block text-white">{{ Auth::user()->name }}</span>
+            
+            <!-- Logout Button -->
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-link text-danger p-0 m-0 align-baseline">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </button>
+            </form>
+        </div>
     </div>
+
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -72,7 +82,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link {{ request()->routeIs('compras.listar') ? 'active' : '' }}">
+            <a href="{{route('usuarios.comprar')}}" class="nav-link {{ request()->routeIs('compras.listar') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-receipt"></i>
                 <p>Compras</p>
             </a>
