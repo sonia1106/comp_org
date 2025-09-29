@@ -9,13 +9,13 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         @if($planta->fotografia)
-                            <img src="{{ asset('storage/' . $planta->fotografia) }}" 
-                                 class="card-img-top" 
-                                 alt="{{ $planta->nombre }}" 
+                            <img src="{{ asset('storage/' . $planta->fotografia) }}"
+                                 class="card-img-top"
+                                 alt="{{ $planta->nombre }}"
                                  style="height: 200px; object-fit: cover;">
                         @else
-                            <img src="https://via.placeholder.com/200x200?text=Sin+Foto" 
-                                 class="card-img-top" 
+                            <img src="https://via.placeholder.com/200x200?text=Sin+Foto"
+                                 class="card-img-top"
                                  alt="Sin foto">
                         @endif
 

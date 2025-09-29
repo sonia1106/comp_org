@@ -1,4 +1,7 @@
 <!-- Main Sidebar Container -->
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="{{route('dashboard')}}" class="brand-link">
@@ -14,8 +17,9 @@
             <img src="{{ asset('backend/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info d-flex flex-column">
-            <span class="d-block text-white">{{ Auth::user()->name }}</span>
-            
+            @auth
+                <span class="d-block text-white">{{ auth()->user()->name }}</span>
+            @endauth            
             <!-- Logout Button -->
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

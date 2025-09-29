@@ -33,7 +33,7 @@ class PlantasController extends Controller
             'precio' => 'required|numeric|min:0',
             'cantidad_disponible' => 'nullable|integer|min:0',
             'descripcion' => 'nullable|string',
-            'fotografia' => 'nullable|image|mimes:jpg,jpeg,png,webd|max:2048',
+            'fotografia' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = $request->all();
@@ -63,7 +63,7 @@ class PlantasController extends Controller
             'precio' => 'required|numeric|min:0',
             'cantidad_disponible' => 'required|integer|min:0',
             'descripcion' => 'nullable|string',
-            'fotografia' => 'nullable|image|mimes:jpg,jpeg,png,webd|max:2048',
+            'fotografia' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = $request->all();

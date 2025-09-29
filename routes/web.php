@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\ComprasController;
 
 
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -66,6 +68,10 @@ Route::post('/usuarios/carrito/agregar/{id}', [ComprasController::class, 'agrega
 Route::get('/usuarios/carrito', [ComprasController::class, 'verCarrito'])->name('usuarios.carrito.ver');
 Route::post('/usuarios/carrito/confirmar', [ComprasController::class, 'confirmarCompra'])->name('usuarios.carrito.confirmar');
 Route::post('/usuarios/carrito/cancelar', [ComprasController::class, 'cancelarCompra'])->name('usuarios.carrito.cancelar');
+Route::post('/compras/confirmar-pago', [ComprasController::class, 'pagoConfirmado'])->name('compras.pagoConfirmado');
+
+
+
 
 
 

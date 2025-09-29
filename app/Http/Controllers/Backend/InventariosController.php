@@ -18,7 +18,7 @@ class InventariosController extends Controller
         $inventarioUsuario = $planta->inventarios()
             ->where('user_id', auth()->id())
             ->first();
-   
+
         return view('backend.inventarios.ver', compact('planta', 'inventarioUsuario'));
     }
 }
