@@ -86,5 +86,58 @@
         </nav>
         <!-- /.sidebar-menu -->
     </div>
+<<<<<<< HEAD
     <!-- /.sidebar -->
+=======
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+            with font-awesome or any other icon font library -->
+        <li class="nav-item menu-open">
+          <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Personas
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('personas.listar')}}" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <i class="nav-icon fas fa-user"></i>
+                <p>Lista personas</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('personas.listar')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <i class="nav-icon fas fa-users"></i>
+                <p>Lista usuarios</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('personas.listar')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <i class="nav-icon fas fa-hands-helping"></i>
+                <p>Voluntarios</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('mapa.listar')}}" class="nav-link">
+            <i class="nav-icon fas fa-map-marker-alt"></i>
+            <p>
+              Mapas
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+>>>>>>> desarrollo-mapa
 </aside>
