@@ -57,4 +57,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Actualiza::class);
     }
+    public function mapas()
+    {
+        return $this->hasMany(Mapa::class);
+    }
 }

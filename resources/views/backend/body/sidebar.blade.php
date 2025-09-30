@@ -20,7 +20,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
-             with font-awesome or any other icon font library -->
+            with font-awesome or any other icon font library -->
         <li class="nav-item menu-open">
           <a href="#" class="nav-link active">
             <i class="nav-icon fas fa-users"></i>
@@ -54,10 +54,10 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="{{route('personas.listar')}}" class="nav-link">
+          <a href="{{route('mapa.listar')}}" class="nav-link">
             <i class="nav-icon fas fa-map-marker-alt"></i>
             <p>
-              Lugares
+              Mapas
             </p>
           </a>
         </li>
