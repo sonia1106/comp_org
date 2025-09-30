@@ -63,6 +63,24 @@
         </a>
       </li>
     </ul>
+
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ asset('backend/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info d-flex flex-column">
+                @auth
+                    <span class="d-block text-dark">{{ auth()->user()->name }}</span>
+                @endauth
+                <!-- Logout Button -->
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="btn btn-link text-danger p-0 m-0 align-baseline">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </button>
+                </form>
+            </div>
+        </div>
   </nav>
   <!-- /.navbar -->
   @include('backend.body.sidebar')

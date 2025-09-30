@@ -14,7 +14,7 @@ class Planta extends Model
     ];
      public function transacciones()
     {
-        return $this->hasMany(Transaccion::class);
+        return $this->hasMany(Transaccion::class, 'id_planta');
     }
 
      public function user()
